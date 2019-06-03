@@ -40,7 +40,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               emitFile: false,
-              name: 'assets/img/[folder]/[name].[ext]?v='+config.version
+              name: 'assets/image/[folder]/[name].[ext]?v='+config.version
             }
           }
         ]  

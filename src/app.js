@@ -11,37 +11,24 @@ const manifest = require('src/manifest.json')
 require('src/vendors/scroller/src/Animate')
 require('src/vendors/scroller/src/Scroller')
 
-const assets = {}, scenes = {}
 
 const app = {
   
   init() {
     this.initAssets()
-    this.initScenes()
   },
 
   initAssets() {
+    const assets = {}
     for(let item of manifest) {
       Object.assign(assets, item)
     }
-    const image = [], sound = []
-    utils.getAssets(assets.img, image)
-    utils.getAssets(assets.sound, sound)
     this.assets = {
-      image,
-      sound
+      image: [],
+      sound: []
     }
-  },
-
-  initScenes() {
-    for(let id of config.scenes) {
-      scenes[id] = {
-        assets: {
-          image: utils.getSceneAssets(id, assets.img),
-          sound: utils.getSceneAssets(id, assets.sound)
-        }
-      }
-    }
+    utils.getAssets(assets.image, this.assets.image)
+    utils.getAssets(assets.sound, this.assets.sound)
   }
 
 }
