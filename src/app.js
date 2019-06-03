@@ -2,6 +2,7 @@ import 'styles/app.styl'
 import utils from 'src/libs/utils'
 import * as PIXI from 'pixi.js'
 import $ from 'zepto-webpack'
+import Wechat from './libs/wechat'
 
 const config = require('root/app.json')
 const manifest = require('src/manifest.json')
@@ -44,6 +45,7 @@ const app = {
 app.init()
 
 window.PIXI = PIXI
+window.Wechat = Wechat
 
 
 
