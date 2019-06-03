@@ -1,0 +1,6 @@
+{
+  "scenes": ["part1", "part2", "part3"],
+  "title": "swipe movie template",
+  "version": "1.0",
+  "publicPath": "/"
+}
