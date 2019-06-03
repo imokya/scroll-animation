@@ -4,8 +4,12 @@ import * as PIXI from 'pixi.js'
 import $ from 'zepto-webpack'
 import Wechat from './libs/wechat'
 
+
+
 const config = require('root/app.json')
 const manifest = require('src/manifest.json')
+require('src/vendors/scroller/src/Animate')
+require('src/vendors/scroller/src/Scroller')
 
 const assets = {}, scenes = {}
 
