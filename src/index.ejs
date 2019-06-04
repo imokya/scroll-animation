@@ -2,14 +2,36 @@
 <!doctype html>
 <html>
 <head>
+  <script>
+    var elem = document.createElement('meta')
+    var w = window.screen.width / 640
+    elem.name = 'viewport'
+    elem.content = 'width=device-width,user-scalable=no,initial-scale='+w
+    document.getElementsByTagName('head')[0].appendChild(elem)
+    var ww = window.innerWidth
+    var fs = ww > 800 ? 100 : 100 * ww / 640
+    document.documentElement.style.fontSize = fs + 'px'
+  </script>
   <meta charset="utf-8">
-   <title><%= config.title %></title>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title><%= config.title %></title>
   <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link href="<%= htmlWebpackPlugin.files.css[css] %>?v=<%= config.version %>" rel="stylesheet">
   <% } %>
 </head>
 <body>
+  <div id="app">
+    <div class="loading-wrap">
+      <div class="loading-img ">
+        <div class="loading-num">100%</div>
+        <div class="loading-hand"></div>
+      </div>
+    </div><!-- loading wrap -->
+    <div id="main">
+      <div class="box">
+        <div class="music"></div>
+      </div><!-- box -->
+    </div><!-- main -->
+  </div><!-- app -->
   <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>?v=<%= config.version %>"></script>
   <% } %>

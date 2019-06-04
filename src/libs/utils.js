@@ -22,7 +22,36 @@ const getSceneAssets = (sceneID, mf) => {
   return assets
 }
 
+const getResId = (path) => {
+  let str = path.replace(/\..*/ig, '')
+  const pos = str.indexOf('/')
+  if(pos) {
+    return str.substr(pos + 1)
+  } else {
+    return str
+  }
+} 
+
+const createSprite = (name, opt) => {
+  const res = app.loader.resources
+  const sprite = new PIXI.Sprite.from(res[name].url)
+  Object.assign(sprite, opt || {})
+  return sprite
+}
+
+const normal = (delta, min, max) => {
+  return (delta - min) / (max - min)
+}
+
+const map = (min, max, delta, start, end) => {
+  return start + normal(delta, min, max) * (end - start);
+}
+
 export default {
+  normal,
+  map,
   getAssets,
+  getResId,
+  createSprite,
   getSceneAssets
 }

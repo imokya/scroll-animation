@@ -5,3 +5,97 @@
 body, html
   height: 100%
   overflow: hidden
+
+body
+  font-family: 'helvetica neue', helvetica, sans-serif
+
+/*---------------------------*/
+.abs 
+  position: absolute
+
+.fix
+  position: fixed
+
+.full 
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+
+/*---------------------------*/
+#app 
+  height: 100%
+
+.loading-wrap 
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  z-index: 99
+  background-color: #fff
+  .loading-img
+    position: absolute
+    width: 3rem
+    height: 3rem
+    left: 0
+    right: 0
+    top: -1.1rem
+    bottom: 0
+    margin: auto
+    background: url(../assets/image/loading.png) no-repeat
+    background-size: cover
+    .loading-num
+      height: 100%
+      text-align: center
+      line-height: 3rem
+      color: #000
+      font-size: .26rem
+      z-index: 10
+      font-weight: bold
+    .loading-hand
+      position: absolute
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+      background: url(../assets/image/loading-hand.png) no-repeat
+      background-size: cover
+      animation: loading 3s linear infinite
+      @keyframes loading 
+        0% 
+          transform: rotate(0)
+        100%
+          transform: rotate(360deg)
+
+/*---------------------------*/
+
+#main
+  position: absolute
+  width: 100%
+  height: 100% 
+  .box 
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    pointer-events: none
+    z-index: 10
+    .music
+      position: absolute
+      width: .7rem
+      height: .91rem
+      right: .05rem
+      top: 0
+      background: url(../assets/image/music-on.png) no-repeat
+      pointer-events: all
+      transition: all .5s
+      background-size: cover
+      transform: scale(.7)
+      &.off
+        background: url(../assets/image/music-off.png) no-repeat
+        background-size: cover;
+
+
+  
