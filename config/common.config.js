@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ManifestWebpackPlugin = require('../plugins/manifest-webpack-plugin')
 
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   resolve: {
     alias: {
       src: path.resolve(__dirname, '../src'),
@@ -37,8 +38,9 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/,
         use: [
           { 
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
+              limit: 3000,
               emitFile: false,
               name: 'assets/image/[name].[ext]?v='+config.version
             }
@@ -79,7 +81,7 @@ module.exports = {
       chunks: 'all',
       cacheGroups: {
         vendors: {
-          test: /\.js$/,
+          test: /(node_modules|vendors)/,
           name: 'vendors'
         },
         styles: {
