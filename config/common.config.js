@@ -6,7 +6,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ManifestWebpackPlugin = require('../plugins/manifest-webpack-plugin')
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
   resolve: {
     alias: {
       src: path.resolve(__dirname, '../src'),
@@ -42,7 +41,8 @@ module.exports = {
             options: {
               limit: 3000,
               emitFile: false,
-              name: 'assets/image/[name].[ext]?v='+config.version
+              context: path.resolve(__dirname, '../src/assets'),
+              name: 'assets/[path][name].[ext]?v='+config.version
             }
           }
         ]  

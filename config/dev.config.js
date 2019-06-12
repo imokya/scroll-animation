@@ -6,6 +6,7 @@ const devConfig = {
   mode: 'development',
   devtool: 'source-map',
   devServer: {
+    writeToDisk: false,
     contentBase: path.join(__dirname, 'build'),
     port: 8080
   },
