@@ -81,11 +81,11 @@ module.exports = {
       chunks: 'all',
       cacheGroups: {
         vendors: {
-          test: /(node_modules|vendors)/,
+          test: /node_modules|vendors/,
           name: 'vendors'
         },
         styles: {
-          test: /\.css|styl$/,
+          test: /\.(css|styl)$/,
           name: 'styles'
         }
       }
